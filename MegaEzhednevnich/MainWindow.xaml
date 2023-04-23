@@ -4,9 +4,42 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MegaEzhednevnich"
+        xmlns:ext="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="900"
+        FontFamily="Rubik"
+        FontSize="17">
+    <Grid Margin="10" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <DatePicker Grid.Row="0" x:Name="DateChooser" VerticalContentAlignment="Center" SelectedDateChanged="DateChooser_SelectedDateChanged"/>
+        <ListBox x:Name="NotesList" Grid.Row="2" Grid.RowSpan="4" Padding="5" SelectionChanged="NotesList_SelectionChanged"></ListBox>
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" >Список заметок:</TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >Название заметки:</TextBlock>
+        <TextBox x:Name="NoteName" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Gray" FontStyle="Italic" PreviewMouseDown="NoteName_PreviewMouseDown"  >Название заметки</TextBox>
+        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" >Описание:</TextBlock>
+        <TextBox x:Name="NoteDescription" TextWrapping="Wrap" Grid.Row="4" Grid.RowSpan="2" Grid.Column="1" Padding="5" Foreground="Gray" FontStyle="Italic" PreviewMouseDown="NoteDescription_PreviewMouseDown" >Описание заметки</TextBox>
+        <Button Margin="5" x:Name="DeleteButtton" IsEnabled="False" Grid.Row="6" Click="DeleteButtton_Click">Удалить к едрене фене</Button>
+     
+        <Grid Grid.Row="6" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="AddButton" Margin="5" Click="AddButton_Click">Добавить запись</Button>
+            <Button x:Name="SaveButton" Grid.Column="1" Margin="5" IsEnabled="False" Click="SaveButton_Click">Сохранить изменения</Button>
+        </Grid>
 
     </Grid>
 </Window>
